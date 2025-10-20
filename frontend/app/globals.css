@@ -1,0 +1,54 @@
+html,
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Poppins", sans-serif;
+  transition: background-color 0.4s, color 0.4s;
+  min-height: 100vh;
+}
+
+body[data-bs-theme="dark"] {
+  background-color: #0b0b0b;
+  color: #eaeaea;
+}
+
+body[data-bs-theme="light"] {
+  background-color: #f8f9fa;
+  color: #212529;
+}
+
+/* For the glass effect card */
+.glass-card {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-radius: 20px;
+  padding: 2rem;
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.3);
+}
+
+/* Neon-style buttons */
+.btn-glow {
+  border: none;
+  padding: 10px 20px;
+  color: white;
+  border-radius: 10px;
+  background: linear-gradient(90deg, #007bff, #6610f2);
+  transition: 0.3s ease;
+}
+
+.btn-glow:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 15px #6610f2;
+}
+
+
+body {
+  background-image: url("../public/image/escaperoom.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  min-height: 100vh;
+  color: white;
+  transition: background 0.3s ease;
+}
