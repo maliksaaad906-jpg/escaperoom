@@ -1,61 +1,32 @@
 "use client";
-
-import { useState } from "react";
-import { useTheme } from "@/context/ThemeContext";
-import ThemeToggle from "./ThemeToggle";
+import { useEffect, useState } from "react";
 
 export default function Navbar() {
-  const [isOpen, setIsOpen] = useState(false);
-  const { theme } = useTheme();
+  const [darkMode, setDarkMode] = useState(true);
+
+  useEffect(() => {
+    document.body.className = darkMode ? "dark-mode" : "light-mode";
+  }, [darkMode]);
 
   return (
     <nav
       className={`navbar navbar-expand-lg ${
-        theme === "dark" ? "navbar-dark bg-dark" : "navbar-light bg-light"
-      } shadow-sm sticky-top`}
+        darkMode ? "navbar-dark" : "navbar-light"
+      } glassy-navbar sticky-top`}
     >
-      <div className="container-fluid">
+      <div className="container-fluid d-flex justify-content-between align-items-center">
         <a className="navbar-brand fw-bold" href="/">
-          🚀 Escape Room
+          🧩 Escape Room
         </a>
-        <button
-          className="navbar-toggler"
-          type="button"
-          onClick={() => setIsOpen(!isOpen)}
-          aria-controls="navbarNav"
-          aria-expanded={isOpen}
-          aria-label="Toggle navigation"
-        >
-          <span className="navbar-toggler-icon"></span>
-        </button>
-        <div
-          className={`collapse navbar-collapse ${isOpen ? "show" : ""}`}
-          id="navbarNav"
-        >
-          <ul className="navbar-nav ms-auto">
-            <li className="nav-item">
-              <a className="nav-link" href="/">
-                Home
-              </a>
-            </li>
-            <li className="nav-item">
-              <a className="nav-link" href="/about">
-                About
-              </a>
-            </li>
-            <li className="nav-item">
-              <a className="nav-link" href="/escape-room">
-                Game
-              </a>
-            </li>
-            <li className="nav-item">
-              <ThemeToggle />
-            </li>
-            <li className="nav-item ps-3">
-                 21483818
-            </li>
-            
-          </ul>
+
+        <div className="d-flex align-items-center gap-3">
+          <button
+            className="btn btn-outline-secondary theme-btn"
+            onClick={() => setDarkMode(!darkMode)}
+          >
+            {darkMode ? "☀️ Light Mode" : "🌙 Dark Mode"}
+          </button>
+          <span className="fw-semibold">Student No: 21483818</span>
         </div>
       </div>
     </nav>

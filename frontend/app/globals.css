@@ -1,54 +1,66 @@
-html,
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
+
 body {
   margin: 0;
-  padding: 0;
   font-family: "Poppins", sans-serif;
-  transition: background-color 0.4s, color 0.4s;
-  min-height: 100vh;
+  background: linear-gradient(180deg, #0d1117, #000);
+  color: #f0f0f0;
 }
 
-body[data-bs-theme="dark"] {
-  background-color: #0b0b0b;
-  color: #eaeaea;
-}
-
-body[data-bs-theme="light"] {
-  background-color: #f8f9fa;
-  color: #212529;
-}
-
-/* For the glass effect card */
+/* Center game card */
 .glass-card {
-  background: rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.07);
+  backdrop-filter: blur(14px);
+  border-radius: 16px;
   padding: 2rem;
-  box-shadow: 0 0 30px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  transition: all 0.3s ease;
 }
 
-/* Neon-style buttons */
-.btn-glow {
-  border: none;
-  padding: 10px 20px;
-  color: white;
+.glass-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.6);
+}
+
+/* Frosted Navbar */
+.glassy-navbar {
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  background: rgba(0, 0, 0, 0.6);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.navbar-brand {
+  font-weight: 700;
+  color: #00e676 !important;
+}
+
+.btn {
+  border-radius: 10px !important;
+  font-weight: 500 !important;
+  transition: all 0.2s ease !important;
+}
+
+/* Inputs & Textareas */
+textarea.form-control,
+input.form-control {
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.3);
   border-radius: 10px;
-  background: linear-gradient(90deg, #007bff, #6610f2);
-  transition: 0.3s ease;
 }
 
-.btn-glow:hover {
-  transform: scale(1.05);
-  box-shadow: 0 0 15px #6610f2;
+textarea.form-control:focus,
+input.form-control:focus {
+  border-color: #00e676;
+  box-shadow: 0 0 12px rgba(0, 230, 118, 0.4);
 }
 
-
-body {
-  background-image: url("../public/image/escaperoom.png");
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  min-height: 100vh;
-  color: white;
-  transition: background 0.3s ease;
+/* Overlay */
+.bg-overlay {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at center, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.9));
+  z-index: 0;
 }
